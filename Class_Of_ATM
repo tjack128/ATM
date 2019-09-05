@@ -1,0 +1,55 @@
+package atm;
+
+import java.util.*;
+
+public class ATM {
+
+    private int id;
+    private double balance;
+    private double datecreated;
+
+    public ATM() {
+        id = 0;
+        balance = 0.0;
+    }
+
+    public ATM(int newId, double newBalance) {
+        id = newId;
+        balance = newBalance;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public double withdraw(double NewBalance) {
+        return balance = balance - NewBalance;
+    }
+
+    public double deposit(double NewBalance) {
+        return balance = balance + NewBalance;
+
+    }
+
+    public static void displayMenu() {
+        System.out.println("Main menu");
+        System.out.println("1: Check Balance ");
+        System.out.println("2: Withdraw ");
+        System.out.println("3: Deposit ");
+        System.out.println("4: Choose another account ");
+        System.out.println("5: End the Program");
+    }
+
+}
