@@ -1,0 +1,60 @@
+package atm;
+
+import java.util.Scanner;
+
+public class TestATM {
+
+    static Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        ATM[] account = new ATM[10];
+        for (int i = 0; i < account.length; i++) {
+            account[i] = new ATM(i, 100.0);
+        }
+
+        int id = 0;
+        boolean continue_outer_loop = true;
+        while(continue_outer_loop) {
+            System.out.print("Enter the id: ");
+            id = scan.nextInt();
+            System.out.println(id);
+         boolean continue_inner_loop = true;
+
+            if (id > 9) {
+                System.out.println("Enter the correct id");
+                continue;
+            }
+            while (continue_inner_loop) {
+                account[id].displayMenu();
+                int Input = scan.nextInt();
+                switch (Input) {
+                    case 1: {
+//Print The Balance
+                        System.out.println("The balance is: " + account[id].getBalance());
+                        break;
+                    }
+                    case 2: {
+                        System.out.print("Enter an amount to withdraw: ");
+                        double Value_Withdraw = scan.nextDouble();
+                        account[id].withdraw(Value_Withdraw);
+                        System.out.println(Value_Withdraw);
+                        break;
+                    }
+                    case 3: {
+                        System.out.print("Enter an amount to deposit: ");
+                        double Value_Deposit = scan.nextDouble();
+                        account[id].deposit(Value_Deposit);
+                        System.out.println(Value_Deposit);
+                        break;
+                    }
+                    case 4: continue;
+                    case 5: {
+                        continue_inner_loop = false;
+                        continue_outer_loop = false;
+                    }
+                }
+            }
+
+        }
+    }
+}
